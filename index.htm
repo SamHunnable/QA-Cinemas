@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+	background-color: white;
+}
+h1 {
+	color: black;
+	text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<h1>QA Cinemas</h1>
+<p>Welcome to QA Cinemas</p>
+<p>Ticket prices: </p>
+
+<p>Standard - £8 </p>
+<button type="button" onclick='add(8).innerHTML = "your total is "'> Add
+</button>
+
+<p>OAP - £6 </p>
+<button type="button" onclick='add(6).innerHTML = "your total is "'> Add
+</button>
+
+<p>Student -£6 </p>
+<button type="button" onclick='add(6).innerHTML = "your total is "'> Add
+</button>
+
+<p>Child -£4 </p>
+<button type="button" onclick='add(4).innerHTML = "your total is "'> Add
+</button>
+
+<p id="total"> </p>
+
+
+
+<script>
+var total =0;
+
+function add(ticket) {
+	
+	total = total + ticket;
+	document.getElementById("total").innerHTML = "your total is " + total;
+}
+
+
+</script>
+
+</body>
+</html>

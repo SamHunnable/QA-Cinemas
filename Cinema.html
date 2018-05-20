@@ -12,15 +12,16 @@ h1 {
 </style>
 </head>
 
-<body>
+<body onLoad="setup()">
 
 <h1>QA Cinemas</h1>
 <p>Welcome to QA Cinemas.</p>
 <p id=currentday>current Day has not been called yet  </p>
-<p id=selectedday>selected Day has not been called yet  </p>
+<p> Please select which day you would like to book for. All tickets are £2 off on Wednesdays</p>
 
 
 <select onchange="setWeekday(value)">
+	<option>Select a different day</option>
 	<option value=1>Monday </option>
 	<option value=2>Tuesday </option>
 	<option value=3>Wednesday </option>
@@ -55,35 +56,29 @@ h1 {
 <button type="button" onclick='reset().innerHTML'> Reset
 </button>
 
-
-
-<p id="test"> Testing setWeekday</p>
-<p id="test2"> Testing getWeekday</p>
-<p id="test3"> Testing setDayString works</p>
-<p id="test3"> Testing day</p>
-<button type="button" onclick='getDayString().innerHTML'> get daystring
-</button>
-
-
-
+<!--<p id="test"> Testing setWeekday</p>
+//<p id="test2"> Testing getWeekday</p>
+//<p id="test3"> Testing setDayString</p>
+//<p id="test4"> Testing getDayString</p>
+//<p id="test5"> Testing initial script</p>
+-->
 
 <script>
 
 var total = 0;
-var daystring;
+var daystring = "none";
 var date = new Date();
-var day = date.getDay();
-setDayString();
-getDayString();
-document.getElementById("currentday").innerHTML = daystring;
 
-
-
-
+function setup() {
+day = date.getDay();
+setWeekday(day);
+document.getElementById("currentday").innerHTML = "Today it is " + getDayString();
+document.getElementById("test5").innerHTML = "Setup runs" + day + " " + daystring;
+}
 
 function add(ticket) {
 
-	if (day == 3) {
+	if (getWeekday() == 3) {
 		total = total + (ticket-2);
 		document.getElementById("total").innerHTML = "The total cost of your tickets with the discount is £" + total;
 	}
@@ -107,12 +102,11 @@ function getWeekday() {
 function setWeekday(dayin) {
 	day = dayin
 	document.getElementById("test").innerHTML = "setWeekday has run " + day;
-	setDayString();
-	getDayString();
+	window.setDayString(day);
 }
 
-function setDayString() {
-	switch (day) {
+function setDayString(dayin) {
+	switch (dayin) {
 		case 0:
 			daystring = "Sunday";
 			break;
@@ -139,8 +133,8 @@ function setDayString() {
 }
 
 function getDayString() {
-	document.getElementById("dayshow").innerHTML = "Today it is " + daystring;
-	return dayString;	
+	document.getElementById("test4").innerHTML = "getDayString has run " + daystring;
+	return daystring;	
 }
 
 </script>

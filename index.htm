@@ -51,14 +51,18 @@ var total =0;
 
 function add(ticket) {
 	
-	total = total + ticket;
-	document.getElementById("total").innerHTML = "The total cost of your tickets is £" + total;
+		total = total + ticket;
+		document.getElementById("total").innerHTML = "The total cost of your tickets with the discount is £" + total;
+
 }
 
 function reset() {
 	document.getElementById("total").innerHTML = "Please select your tickets";
 	total = 0;
-}
+
+//function dayCheck() {
+
+//}
 
 </script>
 

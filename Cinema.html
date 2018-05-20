@@ -9,13 +9,24 @@ h1 {
 	color: black;
 	text-align: center;
 }
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius: 10px;
+}
+label {
+
+	margin: 50px
+}
 </style>
 </head>
 
 <body onLoad="setup()">
 
 <h1>QA Cinemas</h1>
-<p>Welcome to QA Cinemas.</p>
+<img src="Screen.jpg" width="600" height="300">
+<h2>Welcome to QA Cinemas.</h2>
 <p id=currentday>current Day has not been called yet  </p>
 <p> Please select which day you would like to book for. All tickets are £2 off on Wednesdays</p>
 
@@ -35,21 +46,29 @@ h1 {
 
 <p>Ticket prices: </p>
 
-<p>Standard - £8 </p>
+<div>
+<label>Standard - £8</label>
 <button type="button" onclick='add(8).innerHTML'> Add
 </button>
+</div>
 
-<p>OAP - £6 </p>
+<div>
+<label>OAP - £6</label>
 <button type="button" onclick='add(6).innerHTML'> Add
 </button>
+</div>
 
-<p>Student -£6 </p>
+<div>
+<label>Student -£6</label>
 <button type="button" onclick='add(6).innerHTML'> Add
 </button>
+</div>
 
-<p>Child -£4 </p>
+<div>
+<label>Child -£4</label>
 <button type="button" onclick='add(4).innerHTML'> Add
 </button>
+</div>
 
 <p id="total"> Please select your tickets </p>
 
@@ -95,13 +114,13 @@ function reset() {
 	
 function getWeekday() {
 	
-	document.getElementById("test2").innerHTML = "getWeekday has run " + day;
+	//document.getElementById("test2").innerHTML = "getWeekday has run " + day;
 	return day;
 }
 
 function setWeekday(dayin) {
 	day = dayin
-	document.getElementById("test").innerHTML = "setWeekday has run " + day;
+	//document.getElementById("test").innerHTML = "setWeekday has run " + day;
 	window.setDayString(day);
 }
 
@@ -129,11 +148,11 @@ function setDayString(dayin) {
 			daystring = "Saturday";
 			break;
 	}	
-	document.getElementById("test3").innerHTML = "setDayString has run " + daystring;	
+	//document.getElementById("test3").innerHTML = "setDayString has run " + daystring;	
 }
 
 function getDayString() {
-	document.getElementById("test4").innerHTML = "getDayString has run " + daystring;
+	//document.getElementById("test4").innerHTML = "getDayString has run " + daystring;
 	return daystring;	
 }
 

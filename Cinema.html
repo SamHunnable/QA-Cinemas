@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -41,8 +41,11 @@ h1 {
 
 <p id="test"> This is some test content</p>
 <p id="test2"> This is some test content2</p>
-<p id="test"> This is some test content3</p>
+<p id="test3"> This is some test content3</p>
 <button type="button" onclick='getElementById("test").innerHTML="test success"'> Multiple change
+</button>
+
+<button type="button" onclick='dayCheck().innerHTML'> Day
 </button>
 
 
@@ -50,19 +53,28 @@ h1 {
 var total =0;
 
 function add(ticket) {
-	
-		total = total + ticket;
-		document.getElementById("total").innerHTML = "The total cost of your tickets with the discount is £" + total;
 
+	if (dayCheck() == 3) {
+		total = total + (ticket-2);
+		document.getElementById("total").innerHTML = "The total cost of your tickets with the discount is £" + total;
+	}
+	else {
+		total = total + ticket;
+		document.getElementById("total").innerHTML = "The total cost of your tickets is £" + total;
+	}
 }
 
 function reset() {
 	document.getElementById("total").innerHTML = "Please select your tickets";
 	total = 0;
-
-//function dayCheck() {
-
-//}
+}
+	
+function dayCheck() {
+	var da = new Date();
+	var d = da.getDay();
+	document.getElementById("test2").innerHTML = "day is " + d;
+	return d;
+}
 
 </script>
 

@@ -16,6 +16,22 @@ h1 {
 
 <h1>QA Cinemas</h1>
 <p>Welcome to QA Cinemas.</p>
+<p id=currentday>current Day has not been called yet  </p>
+<p id=selectedday>selected Day has not been called yet  </p>
+
+
+<select onchange="setWeekday(value)">
+	<option value=1>Monday </option>
+	<option value=2>Tuesday </option>
+	<option value=3>Wednesday </option>
+	<option value=4>Thursday </option>
+	<option value=5>Friday </option>
+	<option value=6>Saturday </option>
+	<option value=0>Sunday </option>
+</select>
+
+<br>
+
 <p>Ticket prices: </p>
 
 <p>Standard - £8 </p>
@@ -39,22 +55,35 @@ h1 {
 <button type="button" onclick='reset().innerHTML'> Reset
 </button>
 
-<p id="test"> This is some test content</p>
-<p id="test2"> This is some test content2</p>
-<p id="test3"> This is some test content3</p>
-<button type="button" onclick='getElementById("test").innerHTML="test success"'> Multiple change
+
+
+<p id="test"> Testing setWeekday</p>
+<p id="test2"> Testing getWeekday</p>
+<p id="test3"> Testing setDayString works</p>
+<p id="test3"> Testing day</p>
+<button type="button" onclick='getDayString().innerHTML'> get daystring
 </button>
 
-<button type="button" onclick='dayCheck().innerHTML'> Day
-</button>
+
 
 
 <script>
-var total =0;
+
+var total = 0;
+var daystring;
+var date = new Date();
+var day = date.getDay();
+setDayString();
+getDayString();
+document.getElementById("currentday").innerHTML = daystring;
+
+
+
+
 
 function add(ticket) {
 
-	if (dayCheck() == 3) {
+	if (day == 3) {
 		total = total + (ticket-2);
 		document.getElementById("total").innerHTML = "The total cost of your tickets with the discount is £" + total;
 	}
@@ -69,11 +98,49 @@ function reset() {
 	total = 0;
 }
 	
-function dayCheck() {
-	var da = new Date();
-	var d = da.getDay();
-	document.getElementById("test2").innerHTML = "day is " + d;
-	return d;
+function getWeekday() {
+	
+	document.getElementById("test2").innerHTML = "getWeekday has run " + day;
+	return day;
+}
+
+function setWeekday(dayin) {
+	day = dayin
+	document.getElementById("test").innerHTML = "setWeekday has run " + day;
+	setDayString();
+	getDayString();
+}
+
+function setDayString() {
+	switch (day) {
+		case 0:
+			daystring = "Sunday";
+			break;
+		case 1:
+			daystring= "Monday"
+			break;
+		case 2:
+			daystring = "Tuesday";
+			break;
+		case 3:	
+			daystring = "Wednesday";
+			break;
+		case 4:
+			daystring = "Thursday";
+			break;
+		case 5:
+			daystring = "Friday";
+			break;
+		case 6:
+			daystring = "Saturday";
+			break;
+	}	
+	document.getElementById("test3").innerHTML = "setDayString has run " + daystring;	
+}
+
+function getDayString() {
+	document.getElementById("dayshow").innerHTML = "Today it is " + daystring;
+	return dayString;	
 }
 
 </script>

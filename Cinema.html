@@ -50,11 +50,15 @@ label {
 <label>Standard - £8</label>
 <button type="button" onclick='add(8).innerHTML'> Add
 </button>
+<button type="button" onclick='remove(8).innerHTML'> Remove
+</button>
 </div>
 
 <div>
 <label>OAP - £6</label>
 <button type="button" onclick='add(6).innerHTML'> Add
+</button>
+<button type="button" onclick='remove(6).innerHTML'> Remove
 </button>
 </div>
 
@@ -62,11 +66,15 @@ label {
 <label>Student -£6</label>
 <button type="button" onclick='add(6).innerHTML'> Add
 </button>
+<button type="button" onclick='remove(6).innerHTML'> Remove
+</button>
 </div>
 
 <div>
 <label>Child -£4</label>
 <button type="button" onclick='add(4).innerHTML'> Add
+</button>
+<button type="button" onclick='remove(4).innerHTML'> Remove
 </button>
 </div>
 
@@ -104,6 +112,22 @@ function add(ticket) {
 	else {
 		total = total + ticket;
 		document.getElementById("total").innerHTML = "The total cost of your tickets is £" + total;
+	}
+}
+
+function remove(ticket) {
+
+	if (getWeekday() == 3) {
+		total = total - (ticket-2);
+		//if (total<0) {
+		//document.getElementById("total").innerHTML = "You cannot remove this ticket;
+		//}
+		
+		document.getElementById("total").innerHTML = "The total cost of your tickets with the discount is £" + total;
+	}
+	else {
+	total = total - ticket;
+	document.getElementById("total").innerHTML = "The total cost of your tickets is £" + total;
 	}
 }
 

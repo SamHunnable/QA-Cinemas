@@ -83,12 +83,9 @@ label {
 <button type="button" onclick='reset().innerHTML'> Reset
 </button>
 
-<!--<p id="test"> Testing setWeekday</p>
-//<p id="test2"> Testing getWeekday</p>
-//<p id="test3"> Testing setDayString</p>
-//<p id="test4"> Testing getDayString</p>
-//<p id="test5"> Testing initial script</p>
--->
+
+<p id="test"> Testing remove</p>
+
 
 <script>
 
@@ -100,7 +97,6 @@ function setup() {
 day = date.getDay();
 setWeekday(day);
 document.getElementById("currentday").innerHTML = "Today it is " + getDayString();
-document.getElementById("test5").innerHTML = "Setup runs" + day + " " + daystring;
 }
 
 function add(ticket) {
@@ -116,13 +112,14 @@ function add(ticket) {
 }
 
 function remove(ticket) {
+document.getElementById("test").innerHTML = "Remove ran";
 
-	if (getWeekday() == 3 && (total - (ticket-2))>0 {
+	if ( (getWeekday() == 3) && ((total - (ticket-2) )>=0) ) {
 		total = total - (ticket-2);	
 		document.getElementById("total").innerHTML = "The total cost of your tickets with the discount is £" + total;
 	}
 		
-	else if (getWeekday != 3 && (total-ticket)>0) {
+	else if ( (getWeekday != 3) && ((total-ticket)>=0) ) {
 		total = total - ticket;	
 		document.getElementById("total").innerHTML = "The total cost of your tickets is £" + total;
 	}

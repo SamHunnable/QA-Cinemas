@@ -117,24 +117,21 @@ function add(ticket) {
 
 function remove(ticket) {
 
-	if (getWeekday() == 3) {
-		total = total - (ticket-2);
-		if (total<0) {
-			document.getElementById("total").innerHTML = "You cannot remove this ticket;
-			total = total - (ticket-2);
-		}
-		
+	if (getWeekday() == 3 && (total - (ticket-2))>0 {
+		total = total - (ticket-2);	
 		document.getElementById("total").innerHTML = "The total cost of your tickets with the discount is £" + total;
 	}
+		
+	else if (getWeekday != 3 && (total-ticket)>0) {
+		total = total - ticket;	
+		document.getElementById("total").innerHTML = "The total cost of your tickets is £" + total;
+	}
+	
 	else {
-	total = total - ticket;
-	if (total<0) {
-			document.getElementById("total").innerHTML = "You cannot remove this ticket;
-			total = total + ticket;
-		}
-	document.getElementById("total").innerHTML = "The total cost of your tickets is £" + total;
+		document.getElementById("total").innerHTML = "Cannot remove this ticket;
 	}
 }
+
 
 function reset() {
 	document.getElementById("total").innerHTML = "Please select your tickets";
